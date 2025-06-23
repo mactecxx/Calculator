@@ -15,7 +15,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
+      margin: 0;
     }
 
     .calculator {
@@ -24,6 +26,7 @@
       border-radius: 16px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
       width: 350px;
+      margin-bottom: 20px;
     }
 
     .display {
@@ -73,6 +76,13 @@
       filter: brightness(0.9);
     }
 
+    .ad-container {
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
     @media (max-width: 400px) {
       .calculator {
         width: 95%;
@@ -110,6 +120,15 @@
     <button onclick="calculate()" class="equal">=</button>
     <button onclick="press('+')">+</button>
   </div>
+</div>
+
+<!-- 📢 Adsterra Auto-Tag Code -->
+<div class="ad-container">
+  <script type="text/javascript">
+    aclib.runAutoTag({
+        zoneId: 's9b1aepmqw',
+    });
+  </script>
 </div>
 
 <script>
@@ -151,4 +170,3 @@
 
 </body>
 </html>
-
