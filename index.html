@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Advanced Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free advanced calculator with keyboard support, smart expression solving, and ad monetization.">
+  <title>Smart Calculator</title>
   <style>
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
-
     body {
-      background: #e0e0e0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
       margin: 0;
+      background: #f1f3f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
-
+    h1 {
+      margin-top: 10px;
+      color: #333;
+    }
     .calculator {
       background: #fff;
       padding: 20px;
       border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      width: 350px;
-      margin-bottom: 20px;
-    }
-
-    .display {
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       width: 100%;
-      height: 60px;
+      max-width: 360px;
+    }
+    .display {
       background: #222;
       color: #0f0;
       font-size: 24px;
-      padding: 10px;
+      padding: 15px;
       text-align: right;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 10px;
+      min-height: 50px;
+      word-wrap: break-word;
     }
-
     .buttons {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
-
     button {
-      padding: 20px;
+      padding: 18px;
       font-size: 18px;
       border: none;
       border-radius: 8px;
-      background: #f1f1f1;
+      background: #e0e0e0;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.2s;
     }
-
-    button.operator {
+    button:hover {
+      background: #d0d0d0;
+    }
+    .operator {
       background: #ffc107;
     }
-
-    button.equal {
+    .equal {
       background: #28a745;
       color: white;
       grid-column: span 2;
     }
-
-    button.clear {
+    .clear {
       background: #dc3545;
       color: white;
     }
-
-    button:hover {
-      filter: brightness(0.9);
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
     }
-
     .ad-container {
+      margin-top: 20px;
       width: 100%;
-      max-width: 350px;
+      max-width: 360px;
       text-align: center;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 400px) {
-      .calculator {
-        width: 95%;
-      }
     }
   </style>
 </head>
 <body>
+
+<h1>Smart Calculator</h1>
 
 <div class="calculator">
   <div id="result" class="display"></div>
   <div class="buttons">
     <button onclick="press('(')">(</button>
     <button onclick="press(')')">)</button>
-    <button onclick="clearDisplay()" class="clear">C</button>
+    <button class="clear" onclick="clearDisplay()">C</button>
     <button onclick="backspace()">←</button>
 
     <button onclick="press('7')">7</button>
     <button onclick="press('8')">8</button>
     <button onclick="press('9')">9</button>
-    <button onclick="press('/')">÷</button>
+    <button class="operator" onclick="press('/')">÷</button>
 
     <button onclick="press('4')">4</button>
     <button onclick="press('5')">5</button>
     <button onclick="press('6')">6</button>
-    <button onclick="press('*')">×</button>
+    <button class="operator" onclick="press('*')">×</button>
 
     <button onclick="press('1')">1</button>
     <button onclick="press('2')">2</button>
     <button onclick="press('3')">3</button>
-    <button onclick="press('-')">−</button>
+    <button class="operator" onclick="press('-')">−</button>
 
     <button onclick="press('0')">0</button>
     <button onclick="press('.')">.</button>
-    <button onclick="calculate()" class="equal">=</button>
-    <button onclick="press('+')">+</button>
+    <button class="equal" onclick="calculate()">=</button>
+    <button class="operator" onclick="press('+')">+</button>
   </div>
 </div>
 
-<!-- 📢 Adsterra Auto-Tag Code -->
+<!-- 📢 Adcash Auto Ads -->
 <div class="ad-container">
+  <script type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
   <script type="text/javascript">
     aclib.runAutoTag({
-        zoneId: 's9b1aepmqw',
+      zoneId: 's9b1aepmqw',
     });
   </script>
 </div>
+
+<footer>
+  <p>Made with ❤️ | Smart Calculator</p>
+</footer>
 
 <script>
   let result = document.getElementById("result");
@@ -155,14 +155,15 @@
   }
 
   // Keyboard support
-  document.addEventListener("keydown", function(e) {
-    if ((e.key >= '0' && e.key <= '9') || "+-*/().".includes(e.key)) {
+  document.addEventListener("keydown", function (e) {
+    const keys = "0123456789+-*/().";
+    if (keys.includes(e.key)) {
       press(e.key);
-    } else if (e.key === 'Enter') {
+    } else if (e.key === "Enter") {
       calculate();
-    } else if (e.key === 'Backspace') {
+    } else if (e.key === "Backspace") {
       backspace();
-    } else if (e.key === 'Escape') {
+    } else if (e.key === "Escape") {
       clearDisplay();
     }
   });
